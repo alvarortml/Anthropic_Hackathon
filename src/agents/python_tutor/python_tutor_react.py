@@ -7,6 +7,9 @@ import pdb
 from dotenv import load_dotenv
 _ = load_dotenv('.env.anthropic')
 
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_PROJECT"] = f"Tutor Anthropic REACT"
+os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatAnthropic
@@ -14,6 +17,7 @@ from langchain_experimental.tools import PythonREPLTool
 from langchain.agents import initialize_agent
 from langchain.agents import AgentType
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langsmith import Client
 
 instructions = """
     Execute the following Python code, and tell me what is wrong with
@@ -27,6 +31,7 @@ instructions = """
 
 if __name__ == "__main__":
 
+    client = Client()
     tools = [PythonREPLTool()]
     prompt = ChatPromptTemplate.from_messages([
         ("system", "You are a useful assistant. You have a python interpreter to run code when needed"),
