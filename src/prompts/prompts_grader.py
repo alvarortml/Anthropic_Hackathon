@@ -1,6 +1,6 @@
 from langchain.schema.messages import AIMessage, HumanMessage
 
-BASIC_GRADER_SYSTEM_PROMPT = [HumanMessage(content=("""
+GRADER_SYSTEM_PROMPT = [HumanMessage(content=("""
     I hav been using an AI tutor to learn how to code. In the following
     you will see a converstion with me and the AI tutor, in which I try to solve
     a programming problem. You have to look at the conversation and assess
@@ -17,3 +17,6 @@ BASIC_GRADER_SYSTEM_PROMPT = [HumanMessage(content=("""
      of it
 """))
 ]
+
+GRADER_FINALIZING_PROMPT = [HumanMessage(content=("What's the veredict?"))]
+
