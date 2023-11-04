@@ -1,3 +1,4 @@
 .env.anthropic
 homework/
 launch.json
+.streamlit/*
