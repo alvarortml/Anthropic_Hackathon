@@ -6,23 +6,13 @@ import pdb
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv(".env.anthropic")) # read local .env file
 
-from typing import List
-from pydantic.v1 import BaseModel, Field
 from langchain.utils.openai_functions import convert_pydantic_to_openai_function
 from langchain.prompts import ChatPromptTemplate
 from langchain.document_loaders import PyPDFLoader
 from langchain_experimental.llms.anthropic_functions import AnthropicFunctions
+from src.utils.attributes import HomeWork
 
 
-class Problem(BaseModel):
-    """Information about a problem"""
-    problem_name: str = Field(description="The name of the problem")
-    problem_statement: str = Field(description="The statement of the problem")
-    reference_solution: str = Field(description="The code providing the solution to the problem")
-
-class HomeWork(BaseModel):
-    """Information to extract"""
-    problems: List[Problem] = Field(description="List of information about the problems")
 
 if __name__ == "__main__":
 
