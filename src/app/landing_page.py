@@ -28,8 +28,11 @@ if __name__ == "__main__":
     if "leetcode_problem" not in st.session_state:
         st.session_state.leetcode_problem = {}
     
-    if "system_message" not in st.session_state:
-        st.session_state.system_message = {}
+    if "tutor_agent_human_system_message" not in st.session_state:
+        st.session_state.tutor_agent_human_system_message = {}
+    
+    if "tutor_agent_ai_system_message" not in st.session_state:
+        st.session_state.tutor_agent_ai_system_message = {}
 
     if "grader_agent" not in st.session_state:
         st.session_state.grader_agent = ChatAnthropic(model=st.session_state.model,
