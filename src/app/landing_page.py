@@ -12,7 +12,8 @@ if __name__ == "__main__":
 
     st.title("Code Tutor")
 
-    st.text("""Welcome to Code Tutor! On the left you will see some tabs containing the exercices
+    st.text("""
+            Welcome to Code Tutor! On the left you will see some tabs containing the exercices
             your professor has created for you. You will count with an AI Assistant that will help you
             when you get stuck, and will evaluate your solutions.
             
